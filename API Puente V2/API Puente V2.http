@@ -1,0 +1,6 @@
+@API_Puente_V2_HostAddress = http://localhost:5270
+
+GET {{API_Puente_V2_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>API_Puente_V2</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\GESI.CORE.API.PUENTE.BLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GESI.CORE.API.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\DLLs CORE API\GESI.CORE.API.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="GESI.CORE.V2.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\GESI.CORE.V2.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="GESI.CORE.V2.SEC">
+      <HintPath>..\..\Archivos DLLs CORE ERP\GESI.CORE.V2.SEC.dll</HintPath>
+    </Reference>
+    <Reference Include="GESI.ERP.Core.V2.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\GESI.ERP.Core.V2.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="GESI.ERP.Finanzas.V2.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\GESI.ERP.Finanzas.V2.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="GESI.ERP.Ventas.V2.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\GESI.ERP.Ventas.V2.BO.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

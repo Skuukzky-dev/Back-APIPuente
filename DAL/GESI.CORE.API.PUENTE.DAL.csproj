@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GESI.CORE.API.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\DLLs CORE API\GESI.CORE.API.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="GESI.CORE.V2.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\GESI.CORE.V2.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="GESI.ERP.Core.V2.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\GESI.ERP.Core.V2.BO.dll</HintPath>
+    </Reference>
+    <Reference Include="GESI.ERP.Ventas.V2.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\GESI.ERP.Ventas.V2.BO.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
