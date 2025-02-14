@@ -284,7 +284,16 @@ namespace GESI.CORE.API.PUENTE.BLL
             }
         }
 
-
+        /// <summary>
+        /// Devuelve un grupo de Articulos
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="Token"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="grupoArtID"></param>
+        /// <returns></returns>
         public static async Task<cResponseGrupoDeArticulo> GrupoDeProductosGetItem(string URLBackend, string endpoint , string Token, int empresaID, int sucursalID, int grupoArtID)
         {
             try

@@ -10,6 +10,17 @@ namespace GESI.CORE.API.PUENTE.BLL
 {
     public class MediosDePagoMgr
     {
+        /// <summary>
+        /// Devuelve una lista de Medios de Pago
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public static async Task<cResponseMediosDePagos> GetList(string URLBackend, string Token, string endpoint, int empresaID, int sucursalID, int pageNumber, int pageSize)
         {
             try
@@ -26,6 +37,16 @@ namespace GESI.CORE.API.PUENTE.BLL
             }
         }
 
+        /// <summary>
+        /// Devuelve un objeto de Medio de Pago
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="medioDePagoID"></param>
+        /// <returns></returns>
         public static async Task<cResponseMedioDePago> GetItem(string URLBackend, string Token, string endpoint, int empresaID, int sucursalID, int medioDePagoID = 0)
         {
             try

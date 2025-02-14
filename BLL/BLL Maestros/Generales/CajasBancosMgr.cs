@@ -37,6 +37,16 @@ namespace GESI.CORE.API.PUENTE.BLL
             }
         }
 
+        /// <summary>
+        /// Devuelve una Caja / Banco
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="cajabancoID"></param>
+        /// <returns></returns>
         public static async Task<cResponseCajaBanco> GetItem(string URLBackend, string Token, int empresaID, int sucursalID, string endpoint, int cajabancoID = 0)
         {
             try

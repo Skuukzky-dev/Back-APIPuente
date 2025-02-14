@@ -129,8 +129,17 @@ namespace GESI.CORE.API.PUENTE.BLL
             }
         }
 
-
-        public static async Task<List<cResponseSaveMovimientosClientes>> Save(string URLBackend,string Token, int empresaID, int sucursalID, List<cMovimientoDeCliente> lstMovimientos, string endpoint)
+        /// <summary>
+        /// Graba un lote de comprobantes de venta
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="lstMovimientos"></param>
+        /// <param name="endpoint"></param>
+        /// <returns></returns>
+        public static async Task<List<cResponseSaveMovimientosClientes>> SaveComprobantesDeVenta(string URLBackend,string Token, int empresaID, int sucursalID, List<cMovimientoDeCliente> lstMovimientos, string endpoint)
         {
             try
             {
@@ -146,6 +155,32 @@ namespace GESI.CORE.API.PUENTE.BLL
             }
 
 
+        }
+
+        /// <summary>
+        /// Graba una Lista de Comprobantes de Cobro
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="lstMovimientos"></param>
+        /// <param name="endpoint"></param>
+        /// <returns></returns>
+        public static async Task<List<cResponseSaveMovimientosClientes>> SaveComprobantesDeCobro(string URLBackend, string Token, int empresaID, int sucursalID, List<cMovimientoDeCliente> lstMovimientos, string endpoint)
+        {
+            try
+            {
+                List<cResponseSaveMovimientosClientes> lstMovimientosAImportar = new List<cResponseSaveMovimientosClientes>();
+
+                lstMovimientosAImportar = await GESI.CORE.API.PUENTE.DAL.MovimientosDeClientesDAL.Save(URLBackend, Token, empresaID, sucursalID, lstMovimientos, endpoint);
+
+                return lstMovimientosAImportar;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         

@@ -39,7 +39,16 @@ namespace GESI.CORE.API.PUENTE.BLL
             }
         }
 
-
+        /// <summary>
+        /// Devuelve un Item Vendedor
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="vendedorID"></param>
+        /// <returns></returns>
         public static async Task<cResponseVendedor> GetItem(string URLBackend, string Token, int empresaID, int sucursalID, string endpoint, int vendedorID )
         {
             try

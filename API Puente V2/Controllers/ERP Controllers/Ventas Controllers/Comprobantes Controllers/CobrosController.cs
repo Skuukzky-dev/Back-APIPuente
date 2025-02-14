@@ -2,7 +2,6 @@
 using GESI.CORE.API.PUENTE.BLL;
 using GESI.ERP.Ventas.V2.BO;
 using Microsoft.AspNetCore.Mvc;
-using Swashbuckle.AspNetCore.Annotations;
 using System.Diagnostics;
 using System.Net;
 
@@ -12,12 +11,11 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Ventas_Controllers.Comproban
 {
     [Route("api/Ventas/Comprobantes/[controller]")]
     [ApiController]
-    public class PedidosController : ControllerBase
+    public class CobrosController : ControllerBase
     {
-        // GET: api/<PedidosController>
+        // GET: api/<CobrosController>
         [HttpPost("GetItem")]
-        [SwaggerResponse(200, "OK", typeof(cResponseMovimientoDeClientes))]
-        public async Task<IActionResult> GetItem([FromBody]List<dClaveComprobanteDeVenta> oClaves, int pageNumber = (int)APIHelper.pPaginacion.pPageNumber, int pageSize = (int)APIHelper.pPaginacion.pPageSize)
+        public async Task<IActionResult> GetItem([FromBody] List<dClaveComprobanteDeVenta> lstClaves, int pageNumber = (int)APIHelper.pPaginacion.pPageNumber, int pageSize  = (int)APIHelper.pPaginacion.pPageSize)
         {
             GESI.CORE.API.BO.cResponseMovimientoDeClientes? oRespuesta = new GESI.CORE.API.BO.cResponseMovimientoDeClientes();
 
@@ -34,8 +32,8 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Ventas_Controllers.Comproban
 
                 (empresaID, sucursalID) = APIHelper.DevolverEmpresaIDYSucursalID(Request);
 
-                oRespuesta = await GESI.CORE.API.PUENTE.BLL.MovimientosDeClientesMgr.GetItem(URLBackend, Token, empresaID, sucursalID, oClaves, Endpoints.strPedidosGetItem,pageNumber,pageSize);
-                
+                oRespuesta = await GESI.CORE.API.PUENTE.BLL.MovimientosDeClientesMgr.GetItem(URLBackend, Token, empresaID, sucursalID, lstClaves, Endpoints.strCobrosGetItem, pageNumber, pageSize);
+
                 stop.Stop();
                 long tiempo = stop.ElapsedMilliseconds;
 
@@ -64,23 +62,20 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Ventas_Controllers.Comproban
             {
                 stop.Stop();
                 oRespuesta.error = new GESI.CORE.API.BO.cError((int)cCodigosError.cEncabezadoNoEncontrado, Encabezado.Message);
-                
+
                 return Unauthorized(oRespuesta);
             }
             catch (Exception ex)
             {
                 stop.Stop();
-                oRespuesta.error = new GESI.CORE.API.BO.cError((int)cCodigosError.cErrorInternoPuente,ex.Message);
-                
+                oRespuesta.error = new GESI.CORE.API.BO.cError((int)cCodigosError.cErrorInternoPuente, ex.Message);
+
                 return StatusCode((int)HttpStatusCode.InternalServerError, oRespuesta);
             }
         }
-
-
 
         [HttpPost("GetList")]
-        [SwaggerResponse(200, "OK", typeof(cResponseMovimientoDeClientes))]
-        public async Task<IActionResult> GetList([FromBody] dParametrosConsultaComprobantes parametros, int pageNumber = (int)APIHelper.pPaginacion.pPageNumber, int pageSize = (int)APIHelper.pPaginacion.pPageSize)
+        public async Task<IActionResult> GetList([FromBody] dParametrosConsultaComprobantes oParametrosConsulta, int pageNumber = (int)APIHelper.pPaginacion.pPageNumber, int pageSize = (int)APIHelper.pPaginacion.pPageSize)
         {
             GESI.CORE.API.BO.cResponseMovimientoDeClientes? oRespuesta = new GESI.CORE.API.BO.cResponseMovimientoDeClientes();
 
@@ -97,7 +92,7 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Ventas_Controllers.Comproban
 
                 (empresaID, sucursalID) = APIHelper.DevolverEmpresaIDYSucursalID(Request);
 
-                oRespuesta = await GESI.CORE.API.PUENTE.BLL.MovimientosDeClientesMgr.GetList(URLBackend, Token, empresaID, sucursalID,parametros,Endpoints.strPedidosGetList, pageNumber, pageSize);
+                oRespuesta = await GESI.CORE.API.PUENTE.BLL.MovimientosDeClientesMgr.GetList(URLBackend, Token, empresaID, sucursalID, oParametrosConsulta, Endpoints.strCobrosGetList, pageNumber, pageSize);
 
                 stop.Stop();
                 long tiempo = stop.ElapsedMilliseconds;
@@ -127,23 +122,21 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Ventas_Controllers.Comproban
             {
                 stop.Stop();
                 oRespuesta.error = new GESI.CORE.API.BO.cError((int)cCodigosError.cEncabezadoNoEncontrado, Encabezado.Message);
-                
+
                 return Unauthorized(oRespuesta);
             }
             catch (Exception ex)
             {
                 stop.Stop();
-                oRespuesta.error = new GESI.CORE.API.BO.cError((int)cCodigosError.cErrorInternoPuente,ex.Message);
-                
+                oRespuesta.error = new GESI.CORE.API.BO.cError((int)cCodigosError.cErrorInternoPuente, ex.Message);
+
                 return StatusCode((int)HttpStatusCode.InternalServerError, oRespuesta);
             }
         }
 
-
-
+        // POST api/<CobrosController>
         [HttpPost("Create")]
-        [SwaggerResponse(200, "OK", typeof(cResponseSaveMovimientosClientes))]
-        public async Task<IActionResult> Create([FromBody] List<cMovimientoDeCliente> oMovimiento)
+        public async Task<IActionResult> Post([FromBody]List<cMovimientoDeCliente> oMovimiento)
         {
             List<GESI.CORE.API.BO.cResponseSaveMovimientosClientes>? oRespuesta = new List<GESI.CORE.API.BO.cResponseSaveMovimientosClientes>();
 
@@ -155,13 +148,13 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Ventas_Controllers.Comproban
                 string? Token = APIHelper.DevolverTokenEncabezado(Request);
 
                 string URLBackend = APIHelper.DevolverURLBackendPorArchivoHost(Request);
-                
+
                 int empresaID;
                 int sucursalID;
 
                 (empresaID, sucursalID) = APIHelper.DevolverEmpresaIDYSucursalID(Request);
 
-                oRespuesta = await GESI.CORE.API.PUENTE.BLL.MovimientosDeClientesMgr.SaveComprobantesDeVenta(URLBackend, Token, empresaID, sucursalID, oMovimiento, Endpoints.strPedidosCreate);
+                oRespuesta = await GESI.CORE.API.PUENTE.BLL.MovimientosDeClientesMgr.SaveComprobantesDeVenta(URLBackend, Token, empresaID, sucursalID, oMovimiento, Endpoints.strCobrosCreate);
 
                 stop.Stop();
                 long tiempo = stop.ElapsedMilliseconds;
@@ -172,7 +165,7 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Ventas_Controllers.Comproban
             catch (ApplicationException app)
             {
                 stop.Stop();
-               // oRespuesta.error = new GESI.CORE.API.BO.cError((int)cCodigosError.cEmpresaIDNoEncontrada, app.Message);
+                // oRespuesta.error = new GESI.CORE.API.BO.cError((int)cCodigosError.cEmpresaIDNoEncontrada, app.Message);
 
                 return BadRequest(oRespuesta);
             }
@@ -184,27 +177,23 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Ventas_Controllers.Comproban
             catch (InvalidOperationException Encabezado)
             {
                 stop.Stop();
-               /* oRespuesta = new GESI.CORE.API.BO.cResponseMovimientoDeClientes();
-                oRespuesta.error = new GESI.CORE.API.BO.cError();
-                oRespuesta.error.code = (int)cCodigosError.cEncabezadoNoEncontrado;
-                oRespuesta.error.message = "No se encontro el Encabezado en el request";*/
+                /* oRespuesta = new GESI.CORE.API.BO.cResponseMovimientoDeClientes();
+                 oRespuesta.error = new GESI.CORE.API.BO.cError();
+                 oRespuesta.error.code = (int)cCodigosError.cEncabezadoNoEncontrado;
+                 oRespuesta.error.message = "No se encontro el Encabezado en el request";*/
                 return Unauthorized(oRespuesta);
             }
             catch (Exception ex)
             {
                 stop.Stop();
-               /* oRespuesta = new GESI.CORE.API.BO.cResponseMovimientoDeClientes();
-                oRespuesta.error = new GESI.CORE.API.BO.cError();
-                oRespuesta.success = false;
-                oRespuesta.error.code = (int)cCodigosError.cErrorInternoPuente;
-                oRespuesta.error.message = ex.Message;*/
+                /* oRespuesta = new GESI.CORE.API.BO.cResponseMovimientoDeClientes();
+                 oRespuesta.error = new GESI.CORE.API.BO.cError();
+                 oRespuesta.success = false;
+                 oRespuesta.error.code = (int)cCodigosError.cErrorInternoPuente;
+                 oRespuesta.error.message = ex.Message;*/
                 return StatusCode((int)HttpStatusCode.InternalServerError, oRespuesta);
             }
         }
-
-
-
-
-
+        
     }
 }

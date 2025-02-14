@@ -99,7 +99,16 @@ namespace GESI.CORE.API.PUENTE.BLL
             }
         }
 
-
+        /// <summary>
+        /// Actualiza la forma de Pago
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="oFormaDePago"></param>
+        /// <returns></returns>
         public static async Task<cResponseFormaDePago> Update(string URLBackend, string Token, int empresaID, int sucursalID, string endpoint, cFormaDePago oFormaDePago)
         {
             try

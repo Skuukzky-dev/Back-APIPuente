@@ -9,6 +9,17 @@ namespace GESI.CORE.API.PUENTE.BLL
 {
     public class FiltroArticulos2Mgr
     {
+        /// <summary>
+        /// Devuelve una Lista de Filtro Articulos 2
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public static async Task<cResponseFiltroArticulos2> GetList(string URLBackend, string Token, int empresaID, int sucursalID, string endpoint, int pageNumber = 1, int pageSize = 10)
         {
             try

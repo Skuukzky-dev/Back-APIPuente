@@ -35,7 +35,16 @@ namespace GESI.CORE.API.PUENTE.BLL
                 throw;
             }
         }
-
+        /// <summary>
+        /// Devuelve un pais
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="paisID"></param>
+        /// <returns></returns>
         public static async Task<cResponsePais> GetItem(string URLBackend, string Token, string endpoint, int empresaID, int sucursalID, int paisID)
         {
             try

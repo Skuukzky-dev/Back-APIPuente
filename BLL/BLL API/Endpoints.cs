@@ -122,6 +122,13 @@
         public const string strPedidosCreate = "api/Ventas/Comprobantes/Pedidos/Create";
         #endregion
 
+
+        #region Cobros
+        public const string strCobrosGetList = "api/Ventas/Comprobantes/Cobros/GetList";
+        public const string strCobrosCreate = "api/Ventas/Comprobantes/Cobros/Create";
+        public const string strCobrosGetItem = "api/Ventas/Comprobantes/Cobros/GetItem";
+        #endregion
+
         #region Remitos
         public const string strRemitosGetItem = "api/Ventas/Comprobantes/Remitos/GetItem";
         public const string strRemitosGetList = "api/Ventas/Comprobantes/Remitos/GetList";

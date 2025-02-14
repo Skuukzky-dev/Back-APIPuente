@@ -31,7 +31,16 @@ namespace GESI.CORE.API.PUENTE.BLL
             }
         }
 
-
+        /// <summary>
+        /// Devuelve un Repartidor
+        /// </summary>
+        /// <param name="URLBackend"></param>
+        /// <param name="Token"></param>
+        /// <param name="empresaID"></param>
+        /// <param name="sucursalID"></param>
+        /// <param name="endpoint"></param>
+        /// <param name="repartidorID"></param>
+        /// <returns></returns>
         public static async Task<cResponseRepartidor> GetItem(string URLBackend, string Token, int empresaID, int sucursalID, string endpoint, int repartidorID = 0)
         {
             try
