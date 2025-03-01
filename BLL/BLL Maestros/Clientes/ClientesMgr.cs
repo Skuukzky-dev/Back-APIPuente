@@ -22,7 +22,7 @@ namespace GESI.CORE.API.PUENTE.BLL
             {
                 GESI.CORE.API.BO.cResponseClientes? oRespuesta = new BO.cResponseClientes();
 
-                oRespuesta = await DAL.ClientesDAL.GetList(strURLBackend, Token, empresaID,sucursalID,strEndpoint);
+                oRespuesta = await DAL.ClientesDAL.GetList(strURLBackend, Token, empresaID,sucursalID,strEndpoint,pageNumber,pageSize);
 
                 if (oRespuesta?.error != null)
                 {
@@ -30,6 +30,7 @@ namespace GESI.CORE.API.PUENTE.BLL
                         LoggerMgr.LoguearSucesosAPIPuente("Error: " + oRespuesta.error.message, "E", "/api/Maestros/Clientes/GetList");
                 }
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Clientes/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Clientes/GetList");
 
                 return oRespuesta;
             }
@@ -65,6 +66,8 @@ namespace GESI.CORE.API.PUENTE.BLL
                     if (oRespuesta?.error?.message?.Length > 0)
                         LoggerMgr.LoguearSucesosAPIPuente("Error: " + oRespuesta.error.message, "E", "/api/Maestros/Clientes/GetItem");
                 }
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success Clientes/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Clientes/GetItem");
 
                 return oRespuesta;
             }
@@ -105,6 +108,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                         LoggerMgr.LoguearSucesosAPIPuente("Error: " + oRespuesta.error.message, "E", "/api/Maestros/Clientes/GetSearchResults");
                 }
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Clientes/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Clientes/GetSearchResults");
+
+
                 return oRespuesta;
             }
             catch (HttpRequestException htex)
@@ -133,6 +139,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 GESI.CORE.API.BO.cResponseClientes? oRespuesta = new BO.cResponseClientes();
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ClientesDAL.Create(URLBackend, Token, empresaID,sucursalID,strEndpoint, oClientes);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success Clientes/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Clientes/Create");
+
 
                 return oRespuesta;
 
@@ -164,6 +173,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 GESI.CORE.API.BO.cResponseClientes? oRespuesta = new BO.cResponseClientes();
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ClientesDAL.Update(URLBackend, Token,empresaID,sucursalID, strEndpoint, oClientes);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success Clientes/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Clientes/Update");
+
 
                 return oRespuesta;
 

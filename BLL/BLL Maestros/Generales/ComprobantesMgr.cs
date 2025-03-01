@@ -25,6 +25,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ComprobantesDAL.GetList(URLBackend, Token, empresaID, sucursalID, claseDeComprobanteID, endpoint, estado, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Comprobantes/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Comprobantes/GetList");
+
+
                 return oRespuesta;
             }
             catch(Exception)
@@ -53,6 +56,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponseComprobante oRespuesta = new cResponseComprobante();
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ComprobantesDAL.GetItem(URLBackend, Token, empresaID, sucursalID, comprobanteID, endpoint);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success Comprobantes/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Comprobantes/GetItem");
+
 
                 return oRespuesta;
             }

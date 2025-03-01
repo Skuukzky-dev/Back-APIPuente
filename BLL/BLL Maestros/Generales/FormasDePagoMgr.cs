@@ -28,6 +28,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponseFormasDePago oResponse = new cResponseFormasDePago();
 
                 oResponse = await GESI.CORE.API.PUENTE.DAL.FormasDePagoDAL.GetList(URLBackend, Token, empresaID, sucursalID, endpoint, pageNumber, pageSize);
+                
+                LoggerMgr.LoguearSucesosAPIPuente("Success FormasDePago/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/FormasDePago/GetList");
+
 
                 return oResponse;
             }
@@ -61,6 +64,8 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oResponse = await GESI.CORE.API.PUENTE.DAL.FormasDePagoDAL.GetItem(URLBackend, Token, empresaID, sucursalID, endpoint, formaDePagoID);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success FormasDePago/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/FormasDePago/GetItem");
+
                 return oResponse;
             }
             catch (InvalidDataException)
@@ -91,6 +96,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.FormasDePagoDAL.Create(URLBackend, Token, empresaID, sucursalID, endpoint, oFormaDePago);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success FormasDePago/Create", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/FormasDePago/Create");
+
+
                 return oRespuesta;
             }
             catch(Exception)
@@ -117,6 +125,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.FormasDePagoDAL.Update(URLBackend, Token, empresaID, sucursalID, endpoint, oFormaDePago);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success FormasDePago/Update", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/FormasDePago/Update");
+
+
                 return oRespuesta;
             }
             catch (Exception)
@@ -140,6 +151,8 @@ namespace GESI.CORE.API.PUENTE.BLL
             try
             {
             string respuesta =     await GESI.CORE.API.PUENTE.DAL.FormasDePagoDAL.Delete(URLBackend, Token, empresaID, sucursalID, endpoint, codigos);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success FormasDePago/Delete", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/FormasDePago/Delete");
 
                 return respuesta;
             }

@@ -28,6 +28,10 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.FiltroArticulos3DAL.GetList(URLBackend, Token, empresaID, sucursalID, endpoint, pageNumber, pageSize);
 
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success FiltroArticulos3/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/FiltroArticulos3/GetList");
+
+
                 return oRespuesta;
             }
             catch (Exception)

@@ -28,6 +28,8 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ReferenciasContablesDAL.GetList(URLBackend, Token, empresaID, sucursalID, endpoint, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success ReferenciasContables/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/ReferenciasContables/GetList");
+
                 return oRespuesta;
             }
             catch(Exception)
@@ -54,6 +56,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponseReferenciaContable oRespuesta = new cResponseReferenciaContable();
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ReferenciasContablesDAL.GetItem(URLBackend, Token, empresaID, sucursalID, endpoint, referenciaContableID);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success ReferenciasContables/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/ReferenciasContables/GetItem");
+
 
                 return oRespuesta;
             }

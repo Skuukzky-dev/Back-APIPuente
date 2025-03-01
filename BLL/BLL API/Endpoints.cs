@@ -23,7 +23,9 @@
         public const string strCanalesDeVentaGetItem = "api/Maestros/CanalesDeVenta/GetItem";
         #endregion
 
+        #region Zonas
         public const string strZonasGetList = "api/Maestros/Zonas/GetList";
+        #endregion
 
         #region Cajas / Bancos
         public const string strCajasBancosGetList = "api/Maestros/CajasBancos/GetList";
@@ -122,7 +124,6 @@
         public const string strPedidosCreate = "api/Ventas/Comprobantes/Pedidos/Create";
         #endregion
 
-
         #region Cobros
         public const string strCobrosGetList = "api/Ventas/Comprobantes/Cobros/GetList";
         public const string strCobrosCreate = "api/Ventas/Comprobantes/Cobros/Create";
@@ -159,12 +160,10 @@
         public const string strVendedoresGetItem = "api/Maestros/Vendedores/GetItem";
         #endregion
 
-
         #region Proveedores
         public const string strProveedoresGetList = "api/Maestros/Proveedores/GetList";
         public const string strProveedoresGetItem = "api/Maestros/Proveedores/GetItem";
         #endregion
-
 
         #region Repartidores
         public const string strRepartidoresGetList = "api/Maestros/Repartidores/GetList";
@@ -175,7 +174,6 @@
         public const string strAcopiosGetList = "api/Ventas/Comprobantes/Acopios/GetList";
         public const string strAcopiosGetItem = "api/Ventas/Comprobantes/Acopios/GetItem";
         #endregion
-
 
         #region Devoluciones Remito
         public const string strDevolucionesRemitosGetList = "api/Ventas/Comprobantes/DevolucionesDeRemito/GetList";
@@ -195,12 +193,16 @@
         public const string strReferenciasContablesGetItem = "api/Maestros/ReferenciasContables/GetItem";
         #endregion
 
+        #region Comprobantes Pendientes
         public const string strGetComprobantesPendientes = "api/Ventas/Comprobantes/GetComprobantesPendientes";
+        #endregion
 
+        #region Aplicaciones Producto
         public const string strAplicacionesProductosGetList = "api/Maestros/Aplicaciones/GetList";
+        #endregion
 
     }
 
 
- 
+
 }

@@ -29,9 +29,10 @@ namespace GESI.CORE.API.PUENTE.BLL
                 
                 oRespuesta = await GESI.CORE.API.PUENTE.BLL.VendedoresMgr.GetList(URLBackend, Token, empresaID, sucursalID, endpoint, pageNumber, pageSize);
 
-                return oRespuesta;
+                LoggerMgr.LoguearSucesosAPIPuente("Success Vendedores/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Vendedores/GetList");
 
-                   
+
+                return oRespuesta;                   
             }
             catch (Exception) 
             {

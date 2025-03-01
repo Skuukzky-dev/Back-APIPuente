@@ -29,6 +29,10 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.TiposDeOperacionDAL.GetList(URLBackend,Token, empresaID,sucursalID, endpoint, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success TiposDeOperacion/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/TiposDeOperacion/GetList");
+
+
+
                 return oRespuesta;
 
             }
@@ -58,6 +62,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.TiposDeOperacionDAL.GetItem(URLBackend, endpoint, Token, empresaID, sucursalID, tipoDeOperacionID);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success TiposDeOperacion/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/TiposDeOperacion/GetItem");
+
+
                 return oRespuesta;
 
             }
@@ -86,6 +93,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuestaTipoOperacion = await GESI.CORE.API.PUENTE.DAL.TiposDeOperacionDAL.Create(URLBackend, Token, empresaID, sucursalID, endpoint, oTipoOperacion);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success TiposDeOperacion/Save", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/TiposDeOperacion/Save");
+
+
                 return oRespuestaTipoOperacion;
             }
             catch(Exception)
@@ -110,6 +120,8 @@ namespace GESI.CORE.API.PUENTE.BLL
             try
             {
                string respuesta = await GESI.CORE.API.PUENTE.DAL.TiposDeOperacionDAL.Delete(URLBackend,Token,empresaID,sucursalID,endpoint, codigos);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success TiposDeOperacion/Delete", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/TiposDeOperacion/Delete");
 
                 return respuesta;
             }

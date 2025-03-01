@@ -31,6 +31,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.CanalesDeVentaDAL.GetList(URLBackend,Token, empresaID, sucursalID, endpoint, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success CanalesDeVenta/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/CanalesDeVenta/GetList");
+
+
                 return oRespuesta;
 
 
@@ -60,6 +63,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponseCanalDeVenta oRespuesta = new cResponseCanalDeVenta();
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.CanalesDeVentaDAL.GetItem(URLBackend, Token, empresaID,sucursalID,endpoint, canalDeVentaID);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success CanalesDeVenta/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/CanalesDeVenta/GetItem");
+
 
                 return oRespuesta;
             }

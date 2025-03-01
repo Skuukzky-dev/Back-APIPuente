@@ -23,6 +23,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oResponse = await GESI.CORE.API.PUENTE.DAL.RepartidoresDAL.GetList(URLBackend,Token,empresaID,sucursalID,endpoint,pageNumber,pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Repartidores/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Repartidores/GetList");
+
+
                 return oResponse;
             }
             catch(Exception)
@@ -48,6 +51,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponseRepartidor oResponse = new cResponseRepartidor();
 
                 oResponse = await GESI.CORE.API.PUENTE.DAL.RepartidoresDAL.GetItem(URLBackend, Token, empresaID, sucursalID, endpoint,repartidorID);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success Repartidores/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Repartidores/GetItem");
+
 
                 return oResponse;
             }

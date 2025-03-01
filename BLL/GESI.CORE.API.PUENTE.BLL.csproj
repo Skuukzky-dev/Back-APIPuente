@@ -17,6 +17,9 @@
     <Reference Include="GESI.CORE.V2.BO">
       <HintPath>..\..\Archivos DLLs CORE ERP\GESI.CORE.V2.BO.dll</HintPath>
     </Reference>
+    <Reference Include="GESI.ERP.Compras.V2.BO">
+      <HintPath>..\..\Archivos DLLs CORE ERP\GESI.ERP.Compras.V2.BO.dll</HintPath>
+    </Reference>
     <Reference Include="GESI.ERP.Core.V2.BO">
       <HintPath>..\..\Archivos DLLs CORE ERP\GESI.ERP.Core.V2.BO.dll</HintPath>
     </Reference>

@@ -38,6 +38,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                         LoggerMgr.LoguearSucesosAPIPuente("Error: " + oRespuesta.error.message, "E", GESI.CORE.API.PUENTE.BLL.Endpoints.strProductosGetList);
                 }
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Productos/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Productos/GetList");
+
+
                 return oRespuesta;
             }
             catch(ArgumentNullException)
@@ -75,6 +78,8 @@ namespace GESI.CORE.API.PUENTE.BLL
                     if (oRespuesta?.error?.message?.Length > 0)
                         LoggerMgr.LoguearSucesosAPIPuente("Error: " + oRespuesta.error.message, "E", GESI.CORE.API.PUENTE.BLL.Endpoints.strProductosGetItem);
                 }
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success Productos/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Productos/GetItem");
 
 
                 if (oRespuesta?.producto != null)
@@ -123,6 +128,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                         LoggerMgr.LoguearSucesosAPIPuente("Error: " + oRespuesta.error.message, "E", GESI.CORE.API.PUENTE.BLL.Endpoints.strProductosGetSearchResult);
                 }
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Productos/GetSearchResults", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Productos/GetSearchResults");
+
+
                 if (oRespuesta?.productos?.Count > 0)
                     return oRespuesta;
                 else
@@ -159,6 +167,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ProductosDAL.GetPrecios(URLBackend,endpoint, Token,empresaID,sucursalID, codigos, fechamodificaciones, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Productos/GetPrecios", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Productos/GetPrecios");
+
+
                 return oRespuesta;
             }
             catch(ArgumentNullException)
@@ -191,7 +202,8 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponseExistencias oRespuesta = new cResponseExistencias();
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ProductosDAL.GetExistencias(URLBackend, endpoint,Token,empresaID,sucursalID ,codigos,fechahasta,pageNumber,pageSize);
-                
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success Productos/GetExistencias", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Productos/GetExistencias");
                 return oRespuesta;
             }
             catch(Exception )
@@ -221,6 +233,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ProductosDAL.GetExistenciasConModificacionesDesdeFecha(URLBackend,endpoint,Token,empresaID,sucursalID,"",fechamodificaciones,pageNumber,pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Productos/GetExistenciasConModificacionesDesdeFecha", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Productos/GetExistenciasConModificacionesDesdeFecha");
+
+
                 return oRespuesta;
             }
             catch(Exception)
@@ -249,6 +264,8 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oResponse = await GESI.CORE.API.PUENTE.DAL.ProductosDAL.GetListAplicaciones(URLBackend, endpoint, Token, empresaID, sucursalID, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Productos/GetAplicacionesProductos", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Productos/GetAplicacionesProductos");
+
                 return oResponse;
             }
             catch(Exception)
@@ -276,6 +293,8 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oResponse = await GESI.CORE.API.PUENTE.DAL.ProductosDAL.GrupoDeProductosGetList(URLBackend, endpoint, Token, empresaID, sucursalID, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Productos/GetGrupoProductos/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Productos/GetGrupoProductos/GetList");
+
                 return oResponse;
             }
             catch (Exception)
@@ -301,6 +320,8 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponseGrupoDeArticulo oResponse = new cResponseGrupoDeArticulo();
 
                 oResponse = await GESI.CORE.API.PUENTE.DAL.ProductosDAL.GrupoDeProductosGetItem(URLBackend, endpoint, Token, empresaID, sucursalID,grupoArtID);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success Productos/GetGrupoProductos/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Productos/GetGrupoProductos/GetItem");
 
                 return oResponse;
             }

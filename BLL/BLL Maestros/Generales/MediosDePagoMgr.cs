@@ -27,7 +27,10 @@ namespace GESI.CORE.API.PUENTE.BLL
             {
                 cResponseMediosDePagos oRespuesta = new cResponseMediosDePagos();
 
-                oRespuesta = await GESI.CORE.API.PUENTE.DAL.MediosDePagoDAL.GetList(URLBackend, Token, endpoint, empresaID,sucursalID,pageNumber, pageSize); 
+                oRespuesta = await GESI.CORE.API.PUENTE.DAL.MediosDePagoDAL.GetList(URLBackend, Token, endpoint, empresaID,sucursalID,pageNumber, pageSize);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success MediosDePago/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/MediosDePago/GetList");
+
 
                 return oRespuesta;
             }
@@ -54,6 +57,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponseMedioDePago oRespuesta = new cResponseMedioDePago();
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.MediosDePagoDAL.GetItem(URLBackend,Token,endpoint, empresaID, sucursalID, medioDePagoID);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success MediosDePago/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/MediosDePago/GetList");
+
 
                 return oRespuesta;
             }

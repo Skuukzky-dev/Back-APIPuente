@@ -33,6 +33,8 @@ namespace GESI.CORE.API.PUENTE.BLL
                         LoggerMgr.LoguearSucesosAPIPuente("Error: " + oRespuesta.error.message, LoggerMgr.TiposDeLogueo.Error, GESI.CORE.API.PUENTE.BLL.Endpoints.strEmpresasGetList);
                 }
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Empresas/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Empresas/GetList");
+
 
                 if (oRespuesta?.empresas == null)
                     throw new InvalidDataException();

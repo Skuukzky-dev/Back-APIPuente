@@ -29,6 +29,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oResponse = await GESI.CORE.API.PUENTE.DAL.CajasBancosDAL.GetList(URLBackend, Token, empresaID, sucursalID, endpoint, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success CajasBancos/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/CajasBancos/GetList");
+
+
                 return oResponse;
             }
             catch(Exception)
@@ -54,6 +57,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponseCajaBanco oResponse = new cResponseCajaBanco();
 
                 oResponse = await GESI.CORE.API.PUENTE.DAL.CajasBancosDAL.GetItem(URLBackend, Token, empresaID, sucursalID, endpoint, cajabancoID);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success CajasBancos/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/CajasBancos/GetItem");
+
 
                 return oResponse;
             }

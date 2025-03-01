@@ -30,6 +30,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 if (oRespuesta?.tiposDeDocumento == null)
                     throw new ArgumentNullException();
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success TiposDeDocumento/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/TiposDeDocumento/GetList");
+
+
                 return oRespuesta;
             }
             catch(ArgumentNullException)

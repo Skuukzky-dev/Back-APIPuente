@@ -33,6 +33,8 @@ namespace GESI.CORE.API.PUENTE.BLL
                         LoggerMgr.LoguearSucesosAPIPuente("Error: " + oRespuesta.error.message, "E", "/api/Maestros/Almacenes/GetList");
                 }
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Almacenes/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Almacenes/GetList");
+
 
                 return oRespuesta;
             }
@@ -72,7 +74,10 @@ namespace GESI.CORE.API.PUENTE.BLL
                             LoggerMgr.LoguearSucesosAPIPuente("Error: " + oRespuesta.error.message, LoggerMgr.TiposDeLogueo.Error, GESI.CORE.API.PUENTE.BLL.Endpoints.strAlmacenesGetItem);
                     }
 
-                    if (oRespuesta?.almacen != null)
+                    LoggerMgr.LoguearSucesosAPIPuente("Success Almacenes/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Almacenes/GetItem");
+
+
+                if (oRespuesta?.almacen != null)
                         return oRespuesta;
                     else
                         throw new InvalidDataException("No se encontraron almacenes");

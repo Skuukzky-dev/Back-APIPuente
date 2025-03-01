@@ -25,6 +25,8 @@ namespace GESI.CORE.API.PUENTE.BLL
                 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.RubrosDAL.GetList(URLBackend, Token,empresaID,sucursalID, endpoint, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Rubros/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Rubros/GetList");
+
                 return oRespuesta;
             }
             catch (HttpRequestException)

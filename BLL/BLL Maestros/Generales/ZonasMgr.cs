@@ -28,6 +28,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.ZonasDAL.GetList(URLBackend,Token,endpoint,empresaID,sucursalID,pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Zonas/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Zonas/GetList");
+
+
                 return oRespuesta;
             }
             catch(Exception)

@@ -45,7 +45,7 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Maestros_Controllers
 
                 #region Evalua si Token esta activo o es invalido
                 if (oRespuesta != null)
-                    if (oRespuesta.error != null && oRespuesta.error.code == 4012)
+                    if (oRespuesta.error != null && (oRespuesta.error.code == 4012 || oRespuesta.error.code == 4025))
                         return BadRequest(oRespuesta);
                 #endregion
 
@@ -160,7 +160,7 @@ namespace API_Puente_V2.Controllers.ERP_Controllers.Maestros_Controllers
 
                 #region Evalua si Token esta activo o es invalido
                 if (oRespuesta != null)
-                    if (oRespuesta.error != null && oRespuesta.error.code == 4012)
+                    if (oRespuesta.error != null && (oRespuesta.error.code == 4012 || oRespuesta.error.code == 4025))
                         return BadRequest(oRespuesta);
                 #endregion
 

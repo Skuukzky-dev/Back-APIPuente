@@ -28,6 +28,9 @@ namespace GESI.CORE.API.PUENTE.BLL
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.PaisesDAL.GetList(URLBackend, Token, endpoint, empresaID, sucursalID, pageNumber, pageSize);
 
+                LoggerMgr.LoguearSucesosAPIPuente("Success Paises/GetList", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Paises/GetList");
+
+
                 return oRespuesta;
             }
             catch(Exception)
@@ -52,6 +55,9 @@ namespace GESI.CORE.API.PUENTE.BLL
                 cResponsePais oRespuesta = new cResponsePais();
 
                 oRespuesta = await GESI.CORE.API.PUENTE.DAL.PaisesDAL.GetItem(URLBackend, Token, endpoint, empresaID, sucursalID, paisID);
+
+                LoggerMgr.LoguearSucesosAPIPuente("Success Paises/GetItem", LoggerMgr.TiposDeLogueo.Info, "api/Maestros/Paises/GetItem");
+
 
                 return oRespuesta;
             }
